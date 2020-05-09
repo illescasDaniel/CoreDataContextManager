@@ -2,6 +2,8 @@
 
 A group of useful methods on top of core data context.
 
+Compatible with SwiftUI.
+
 **Note:** this package may need some testing before using on a real project.
 
 ### Interface 
