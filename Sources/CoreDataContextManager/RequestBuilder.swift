@@ -20,7 +20,7 @@ public class RequestBuilder<RequestResult: NSFetchRequestResult> {
 	private let fetchRequest = NSFetchRequest<RequestResult>()
 	
 	public init() {
-		if let ManagedObject = RequestResult.self as? NSManagedObject.Type, #available(OSX 10.12, *) {
+		if let ManagedObject = RequestResult.self as? NSManagedObject.Type, #available(OSX 10.12, tvOS 10.0, iOS 10.0, watchOS 3.0, *) {
 			fetchRequest.entity = ManagedObject.entity()
 		}
 	}
@@ -89,7 +89,7 @@ public class RequestBuilder<RequestResult: NSFetchRequestResult> {
 		return fetchRequest
 	}
 	
-	@available(OSX 10.11, *)
+	@available(OSX 10.11, iOS 9.0, watchOS 2.0, tvOS 9.0, *)
 	public func buildDeleteFetchRequest() -> NSBatchDeleteRequest {
 		return NSBatchDeleteRequest(fetchRequest: self.fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
 	}
